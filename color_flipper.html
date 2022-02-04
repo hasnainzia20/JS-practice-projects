@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color FLipper</title>
+</head>
+<body>
+    <style>
+        #wrapper {
+            min-width: 100vw;
+            min-height: 100vh;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .button button{
+            padding: 10px 30px;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+
+    <div id="wrapper">
+        <div class="button">
+            <button id="button" onclick="a()">FLIP</button>
+        </div>
+    </div>
+
+
+    <script>
+        let wrapper = document.getElementById('wrapper');
+        let button = document.getElementById('button');
+
+
+        function a() { 
+            
+            var random_1 = Math.floor(Math.random() * 255);
+            var random_2 = Math.floor(Math.random() * 255);
+            var random_3 = Math.floor(Math.random() * 255);
+            wrapper.style.backgroundColor = "rgb(" + random_1 + "," + random_2 + ","  + random_3 + ")";
+            wrapper.style.transitionDuration = "1s";
+            button.style.transitionDuration = "1s";
+            button.style.transform = "rotate(90deg)";
+        }
+        function b() {           
+            var random_1 = Math.floor(Math.random() * 255);
+            var random_2 = Math.floor(Math.random() * 255);
+            var random_3 = Math.floor(Math.random() * 255);
+            wrapper.style.backgroundColor = "rgb(" + random_1 + "," + random_2 + ","  + random_3 + ")";
+            button.style.transform = "rotate(180deg)"; };
+        function c() {           
+            var random_1 = Math.floor(Math.random() * 255);
+            var random_2 = Math.floor(Math.random() * 255);
+            var random_3 = Math.floor(Math.random() * 255);
+            wrapper.style.backgroundColor = "rgb(" + random_1 + "," + random_2 + ","  + random_3 + ")";
+            button.style.transform = "rotate(270deg)"; };
+        function d() {           
+            var random_1 = Math.floor(Math.random() * 255);
+            var random_2 = Math.floor(Math.random() * 255);
+            var random_3 = Math.floor(Math.random() * 255);
+            wrapper.style.backgroundColor = "rgb(" + random_1 + "," + random_2 + ","  + random_3 + ")";
+            button.style.transform = "rotate(360deg)"; };
+
+        var myFunctions = [a, b, c, d];
+
+        var nextFunction = 0;
+
+        function myFunctionSwitcher() {
+            myFunctions[nextFunction]();
+            nextFunction = nextFunction + 1;
+            if(nextFunction > 3 ) {
+                nextFunction = 0;
+            }
+        }
+    </script>
+</body>
+</html>
